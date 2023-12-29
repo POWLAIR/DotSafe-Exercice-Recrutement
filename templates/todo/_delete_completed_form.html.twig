@@ -1,0 +1,4 @@
+<form action="{{ path('app_todo_delete_completed') }}" method="post" class="d-inline">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete_completed') }}">
+    <button type="submit" class="btn btn-danger">Delete Completed Todos</button>
+</form>

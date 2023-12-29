@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo index{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Todo List</h1>
+
+         {# Affichage du nombre de todos complétés / Nombre total #}
+        <p>{{ completedTodosCount }} / {{ totalTodosCount }} todos completed</p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Completed</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <td>{{ todo.id }}</td>
+                    <td>{{ todo.name }}</td>
+                    <td>{{ todo.details }}</td>
+                    <td>{{ todo.completed ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('app_todo_show', {'id': todo.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_todo_edit', {'id': todo.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_todo_new') }}" class="btn btn-success">Create New Todo</a>
+    
+        {# Ajouter un bouton pour supprimer toutes les todos complétées #}
+        <a href="{{ path('app_todo_delete_completed') }}" class="btn btn-danger">Delete Completed Todos</a>
+
+        {# Message encourageant #}
+        {% if remainingTodosCount < totalTodosCount / 2 %}
+            <p class="text-success">You're doing great! Keep it up!</p>
+        {% endif %}
+    
+    
+    </div>
+{% endblock %}

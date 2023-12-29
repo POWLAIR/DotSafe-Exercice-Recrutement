@@ -1,0 +1,18 @@
+{{ form_start(form, {'attr': {'class': 'custom-form'}}) }}
+    <div class="mb-3">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.details) }}
+        {{ form_widget(form.details, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3 form-check">
+        {{ form_widget(form.completed, {'attr': {'class': 'form-check-input'}}) }}
+        {{ form_label(form.completed, null, {'label_attr': {'class': 'form-check-label'}}) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

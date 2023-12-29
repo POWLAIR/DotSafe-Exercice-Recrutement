@@ -1,0 +1,95 @@
+/* Ajoutez ces styles pour la classe 'custom-form' */
+.custom-form {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+  
+  .custom-form h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+  
+  .custom-form input[type="text"],
+  .custom-form input[type="password"],
+  .custom-form input[type="date"],
+  .custom-form input[type="datetime"],
+  .custom-form input[type="email"],
+  .custom-form input[type="number"],
+  .custom-form input[type="search"],
+  .custom-form input[type="tel"],
+  .custom-form input[type="time"],
+  .custom-form input[type="url"],
+  .custom-form textarea,
+  .custom-form select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+  }
+  
+  .custom-form button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 10px;
+  }
+  
+  .custom-form fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+  
+  .custom-form legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  .custom-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .custom-form label.light {
+    font-weight: 300;
+    display: inline;
+  }
+  
+  .custom-form .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 100%;
+  }
+  
+  @media screen and (min-width: 480px) {
+    .custom-form {
+      max-width: 480px;
+    }
+  }
+  
