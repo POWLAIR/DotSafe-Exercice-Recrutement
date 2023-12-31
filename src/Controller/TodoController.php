@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 #[Route('/')]
 class TodoController extends AbstractController
@@ -77,7 +78,24 @@ class TodoController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/complete/{id}', name: 'app_todo_complete', methods: ['POST'])]
+    public function completeTodo(Request $request, Todo $todo, EntityManagerInterface $entityManager): RedirectResponse
+    {
+        if ($request->isMethod('POST')) {
+            // Mettre à jour la propriété 'completed' de l'objet Todo
+            $todo->setCompleted(true);
+            $entityManager->flush();
     
+            // Rediriger vers la page d'index des todos
+            return $this->redirectToRoute('app_todo_index', [], Response::HTTP_SEE_OTHER);
+        }
+    
+        // Si la requête n'est pas de type POST, retourner une réponse JSON avec un message d'erreur
+        return new JsonResponse(['message' => 'Invalid request method'], JsonResponse::HTTP_BAD_REQUEST);
+    }
+    
+
     #[Route('/{id}', name: 'app_todo_delete', methods: ['POST'])]
     public function delete(Request $request, Todo $todo, EntityManagerInterface $entityManager): Response
     {

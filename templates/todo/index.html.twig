@@ -29,6 +29,11 @@
                     <td>
                         <a href="{{ path('app_todo_show', {'id': todo.id}) }}" class="btn btn-info btn-sm">Show</a>
                         <a href="{{ path('app_todo_edit', {'id': todo.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{{ path('app_todo_delete', {'id': todo.id}) }}"
+                        onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-sm">Delete</a>
+                        <form method="post" action="{{ path('app_todo_complete', {'id': todo.id}) }}" style="display: inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Complete</button>
+                        </form>                    
                     </td>
                 </tr>
             {% else %}
