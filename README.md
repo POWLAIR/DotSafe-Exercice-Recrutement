@@ -73,7 +73,7 @@
       <td><a href="{{ path('app_todo_complete', {'id': todo.id}) }}" class="btn btn-success btn-sm">Complete</a></td>
    {% endfor %}
    ```
-   ~~~twig
+   ```php
     use Symfony\Component\HttpFoundation\RedirectResponse;
    
     #[Route('/complete/{id}', name: 'app_todo_complete', methods: ['POST'])]
@@ -91,8 +91,7 @@
         // Si la requête n'est pas de type POST, retourner une réponse JSON avec un message d'erreur
         return new JsonResponse(['message' => 'Invalid request method'], JsonResponse::HTTP_BAD_REQUEST);
     }
-    
-   ~~~
+   ```
 
 4. **Statistiques des Todos / Message d'Encouragement**
 
