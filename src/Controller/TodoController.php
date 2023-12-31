@@ -77,6 +77,17 @@ class TodoController extends AbstractController
             'form' => $form,
         ]);
     }
+    
+    #[Route('/{id}', name: 'app_todo_delete', methods: ['POST'])]
+    public function delete(Request $request, Todo $todo, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$todo->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($todo);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_todo_index', [], Response::HTTP_SEE_OTHER);
+    }
 
     #[Route('/delete-completed', name: 'app_todo_delete_completed', methods: ['POST'])]
     public function deleteCompleted(Request $request, EntityManagerInterface $entityManager, TodoRepository $todoRepository): Response
