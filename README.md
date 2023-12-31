@@ -133,7 +133,7 @@
 
   **Code associé :**
 
-   ~~~twig
+   ~~~php
    #[Route('/delete-completed', name: 'app_todo_delete_completed', methods: ['POST'])]
     public function deleteCompleted(Request $request, EntityManagerInterface $entityManager, TodoRepository $todoRepository): Response
     {
